@@ -1,6 +1,11 @@
 # MboaGov Fiscal (front-end)
 
 Application web Next.js pour l’« Assistant Fiscal National » au Cameroun.
+[![Next.js](https://img.shields.io/badge/Framework-Next.js-000000?logo=next.js)](https://nextjs.org)
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/CSS-Tailwind%20CSS-06B6D4?logo=tailwind-css)](https://tailwindcss.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Stack
 - **Next.js** (App Router)
