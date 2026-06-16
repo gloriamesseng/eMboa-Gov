@@ -8,7 +8,7 @@ import { useState, useEffect, useRef } from 'react';
  */
 export function useCounter(target: number, duration: number = 2000, delay: number = 0) {
   const [count, setCount] = useState(0);
-  const countRef = useRef<HTMLSpanElement>(null);
+  const countRef = useRef<HTMLDivElement>(null);;
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
