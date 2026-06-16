@@ -18,7 +18,7 @@ const SectionConstat = () => {
       costDesc: "C'est le temps moyen consacré chaque année par une PME camerounaise pour comprendre, préparer et soumettre ses obligations fiscales."
     },
     en: {
-      tag: "The Facts",
+      tag: "The Fact",
       headline: ["Cameroonian taxation should not be an ", "obstacle course"],
       subline: "Millions of citizens, artisans and SMEs lose time, make mistakes or give up on their procedures for lack of clear and accessible information.",
       costTitle: "The cost of complexity",

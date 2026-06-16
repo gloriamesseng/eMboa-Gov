@@ -46,7 +46,7 @@ export default function MboaGovFiscal() {
         </div>
 
         {/* Assistant Greeting Card */}
-        <div className="absolute right-6 lg:right-16 top-[30%] -translate-y-1/2 glass-panel p-5 rounded-2xl shadow-floating animate-float max-w-[280px] pointer-events-auto">
+        <div className="hidden md:flex absolute right-6 lg:right-16 top-[30%] -translate-y-1/2 glass-panel p-5 rounded-2xl shadow-floating animate-float max-w-[280px] pointer-events-auto">
           <div className="flex items-start gap-4">
             <div className="relative">
               <div className="w-10 h-10 rounded-full bg-brand-green flex items-center justify-center shadow-lg">
