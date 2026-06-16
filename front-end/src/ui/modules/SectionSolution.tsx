@@ -1,6 +1,92 @@
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const SectionSolution = () => {
+  const { language } = useLanguage();
+
+  const content = {
+    fr: {
+      tag: "La Solution",
+      headline: "Et si une simple conversation suffisait ?",
+      description: "MboaGov Fiscal ne se contente pas de numériser les impôts. Nous créons un pont conversationnel direct, fluide et fiable entre vous et l'administration camerounaise — connecté en temps réel aux bases de la DGI et du MINFI.",
+      connectionBadge: "Connecté en direct aux bases DGI & MINFI",
+      assistantName: "MboaGov Fiscal",
+      assistantStatus: "Assistant Fiscal National · En ligne",
+      dgiBadge: "✦ DGI Officiel",
+      userQuestion: "Quelles sont mes échéances fiscales ce mois-ci ?",
+      assistantDataBadge: "✦ Données DGI vérifiées · Juin 2025",
+      assistantReplyIntro: "Voici vos échéances fiscales pour le mois de Juin 2025 :",
+      deadlines: [
+        { title: "TVA — Déclaration mensuelle", date: "15 Juin 2025", status: "Urgent" },
+        { title: "IR — Acompte trimestriel", date: "20 Juin 2025", status: "Proche" },
+        { title: "CNPS — Déclaration salaires", date: "25 Juin 2025", status: "À venir" }
+      ],
+      assistantSource: "Source DGI officielle · Calendrier fiscal 2025 · Art. 152 CGI",
+      btnCalendar: "📅 Voir le calendrier complet",
+      btnRemind: "🔔 M'envoyer un rappel",
+      cardLang: {
+        title: "L'administration qui parle votre langue",
+        desc: "Plus de jargon intimidant. Posez vos questions en français, en anglais ou avec vos expressions locales — l'assistant traduit votre situation en termes juridiques précis, instantanément."
+      },
+      cardSource: {
+        title: "Câblé directement sur la source",
+        desc: "Les lois changent, les PDF vieillissent. Notre connexion via le protocole MCP garantit que chaque réponse provient des serveurs à jour de la DGI et du MINFI — jamais d'une information obsolète.",
+        syncLabel: "Synchronisation DGI",
+        syncStatus: "En direct"
+      },
+      processTag: "🛡️ Conçu pour la fiabilité",
+      processTitle: "Comment nous évitons l'hallucination",
+      processDesc: "L'intelligence artificielle est brillante, mais elle peut se tromper. Le protocole MCP agit comme un garde-fou : il oblige l'assistant à lire la donnée gouvernementale avant de répondre.",
+      steps: [
+        { title: "Question", description: "Expression du besoin en langage naturel." },
+        { title: "Traduction MCP", description: "Conversion en requête technique stricte." },
+        { title: "Base de l'État", description: "Extraction de la donnée certifiée (DGI / MINFI)." },
+        { title: "Réponse sourcée", description: "L'assistant vulgarise l'information certifiée." }
+      ]
+    },
+    en: {
+      tag: "The Solution",
+      headline: "What if a simple conversation was enough?",
+      description: "MboaGov Fiscal doesn't just digitize taxes. We create a direct, fluid and reliable conversational bridge between you and the Cameroonian administration — connected in real time to the DGI and MINFI databases.",
+      connectionBadge: "Connected live to DGI & MINFI bases",
+      assistantName: "MboaGov Fiscal",
+      assistantStatus: "National Tax Assistant · Online",
+      dgiBadge: "✦ Official DGI",
+      userQuestion: "What are my tax deadlines this month?",
+      assistantDataBadge: "✦ Verified DGI data · June 2025",
+      assistantReplyIntro: "Here are your tax deadlines for the month of June 2025:",
+      deadlines: [
+        { title: "VAT — Monthly declaration", date: "June 15, 2025", status: "Urgent" },
+        { title: "IT — Quarterly installment", date: "June 20, 2025", status: "Soon" },
+        { title: "CNPS — Salary declaration", date: "June 25, 2025", status: "Upcoming" }
+      ],
+      assistantSource: "Official DGI source · 2025 Tax Calendar · Art. 152 CGI",
+      btnCalendar: "📅 View full calendar",
+      btnRemind: "🔔 Send me a reminder",
+      cardLang: {
+        title: "The administration that speaks your language",
+        desc: "No more intimidating jargon. Ask your questions in French, English or using local expressions — the assistant translates your situation into precise legal terms instantly."
+      },
+      cardSource: {
+        title: "Wired directly to the source",
+        desc: "Laws change, PDFs get old. Our connection via the MCP protocol ensures that every response comes from the up-to-date servers of the DGI and MINFI — never from obsolete information.",
+        syncLabel: "DGI Synchronization",
+        syncStatus: "Live"
+      },
+      processTag: "🛡️ Designed for reliability",
+      processTitle: "How we avoid hallucination",
+      processDesc: "Artificial intelligence is brilliant, but it can be wrong. The MCP protocol acts as a safeguard: it forces the assistant to read government data before answering.",
+      steps: [
+        { title: "Question", description: "Expression of needs in natural language." },
+        { title: "MCP Translation", description: "Conversion into a strict technical request." },
+        { title: "State Database", description: "Extraction of certified data (DGI / MINFI)." },
+        { title: "Sourced Answer", description: "The assistant simplifies certified information." }
+      ]
+    }
+  };
+
+  const t = content[language];
+
   return (
     <section id="solution" className="relative w-full py-24 lg:py-32 overflow-hidden bg-white">
       <div className="absolute inset-0 -z-10 opacity-50" style={{ backgroundImage: 'radial-gradient(#E2E8F0 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
@@ -11,17 +97,17 @@ const SectionSolution = () => {
           <div className="w-full lg:w-5/12 reveal-up">
             <div className="inline-flex items-center gap-3 mb-6">
               <span className="gold-rule"></span>
-              <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-green" style={{ letterSpacing: '.25em' }}>La Solution</span>
+              <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-green" style={{ letterSpacing: '.25em' }}>{t.tag}</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.15] font-bold text-brand-blue mb-6 tracking-tight">
-              Et si une simple conversation suffisait&nbsp;?
+              {t.headline}
             </h2>
             <p className="text-base md:text-lg text-brand-muted leading-relaxed mb-8 max-w-md">
-              MboaGov Fiscal ne se contente pas de numériser les impôts. Nous créons un pont conversationnel direct, fluide et fiable entre vous et l'administration camerounaise — connecté en temps réel aux bases de la DGI et du MINFI.
+              {t.description}
             </p>
             <div className="inline-flex items-center gap-2 bg-brand-green/10 text-brand-green px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase border border-brand-green/20">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-              Connecté en direct aux bases DGI &amp; MINFI
+              {t.connectionBadge}
             </div>
           </div>
 
@@ -34,15 +120,15 @@ const SectionSolution = () => {
                   <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-brand-blue">MboaGov Fiscal</div>
+                  <div className="text-sm font-bold text-brand-blue">{t.assistantName}</div>
                   <div className="flex items-center gap-1.5 text-xs text-brand-green">
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse inline-block"></span>
-                    Assistant Fiscal National · En ligne
+                    {t.assistantStatus}
                   </div>
                 </div>
                 <div className="ml-auto">
                   <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-green/10 text-brand-green border border-brand-green/20">
-                    ✦ DGI Officiel
+                    {t.dgiBadge}
                   </span>
                 </div>
               </div>
@@ -57,7 +143,7 @@ const SectionSolution = () => {
                 }}
               >
                 <div className="max-w-[80%] px-5 py-3.5 text-sm rounded-3xl font-medium shadow-sm text-white" style={{ background: 'linear-gradient(135deg,#006B3F,#0a8a52)', borderBottomRightRadius: '6px' }}>
-                  Quelles sont mes échéances fiscales ce mois-ci ?
+                  {t.userQuestion}
                 </div>
               </div>
 
@@ -76,19 +162,19 @@ const SectionSolution = () => {
                 <div className="flex-1 rounded-3xl rounded-bl-md p-5 bg-brand-blue/5 border border-brand-blue/10">
                   <div className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full mb-4 bg-brand-green/10 text-brand-green border border-brand-green/20">
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    ✦ Données DGI vérifiées · Juin 2025
+                    {t.assistantDataBadge}
                   </div>
-                  <p className="text-sm text-brand-blue font-medium mb-4">Voici vos échéances fiscales pour le mois de Juin 2025&nbsp;:</p>
+                  <p className="text-sm text-brand-blue font-medium mb-4">{t.assistantReplyIntro}</p>
 
                   <div className="space-y-3">
-                    <DeadlineItem title="TVA — Déclaration mensuelle" date="15 Juin 2025" status="Urgent" color="red" icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />} />
-                    <DeadlineItem title="IR — Acompte trimestriel" date="20 Juin 2025" status="Proche" color="amber" icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />} />
-                    <DeadlineItem title="CNPS — Déclaration salaires" date="25 Juin 2025" status="À venir" color="violet" icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />} />
+                    <DeadlineItem title={t.deadlines[0].title} date={t.deadlines[0].date} status={t.deadlines[0].status} color="red" icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />} />
+                    <DeadlineItem title={t.deadlines[1].title} date={t.deadlines[1].date} status={t.deadlines[1].status} color="amber" icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />} />
+                    <DeadlineItem title={t.deadlines[2].title} date={t.deadlines[2].date} status={t.deadlines[2].status} color="violet" icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />} />
                   </div>
 
                   <div className="flex items-center gap-2 mt-4 pt-3 text-xs text-brand-muted border-t border-brand-border/70">
                     <svg className="w-3.5 h-3.5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    Source DGI officielle · Calendrier fiscal 2025 · Art. 152 CGI
+                    {t.assistantSource}
                   </div>
                 </div>
               </div>
@@ -96,10 +182,10 @@ const SectionSolution = () => {
               {/* Actions rapides */}
               <div className="flex flex-wrap gap-2 mt-5 relative z-10">
                 <button className="text-xs font-semibold px-4 py-2 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-md bg-brand-green/10 text-brand-green border border-brand-green/15">
-                  📅 Voir le calendrier complet
+                  {t.btnCalendar}
                 </button>
                 <button className="text-xs font-semibold px-4 py-2 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-md bg-brand-blue/10 text-brand-blue border border-brand-blue/12">
-                  🔔 M'envoyer un rappel
+                  {t.btnRemind}
                 </button>
               </div>
             </div>
@@ -115,8 +201,8 @@ const SectionSolution = () => {
               <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center mb-5">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">L'administration qui parle votre langue</h3>
-              <p className="text-white/80 font-medium text-base leading-relaxed max-w-md">Plus de jargon intimidant. Posez vos questions en français, en anglais ou avec vos expressions locales — l'assistant traduit votre situation en termes juridiques précis, instantanément.</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">{t.cardLang.title}</h3>
+              <p className="text-white/80 font-medium text-base leading-relaxed max-w-md">{t.cardLang.desc}</p>
             </div>
           </div>
 
@@ -124,13 +210,13 @@ const SectionSolution = () => {
             <div className="w-12 h-12 rounded-2xl bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-6">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-brand-blue mb-3">Câblé directement sur la source</h3>
-            <p className="text-brand-muted font-medium text-base leading-relaxed mb-8 max-w-md">Les lois changent, les PDF vieillissent. Notre connexion via le protocole MCP garantit que chaque réponse provient des serveurs à jour de la DGI et du MINFI — jamais d'une information obsolète.</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-brand-blue mb-3">{t.cardSource.title}</h3>
+            <p className="text-brand-muted font-medium text-base leading-relaxed mb-8 max-w-md">{t.cardSource.desc}</p>
 
             <div className="mt-auto flex flex-col gap-3">
               <div className="flex items-center justify-between text-xs font-semibold text-brand-muted mb-1">
-                <span>Synchronisation DGI</span>
-                <span className="text-brand-blue">En direct</span>
+                <span>{t.cardSource.syncLabel}</span>
+                <span className="text-brand-blue">{t.cardSource.syncStatus}</span>
               </div>
               <div className="h-2 w-full bg-brand-bg rounded-full overflow-hidden border border-brand-border">
                 <div className="h-full bg-brand-blue/60 w-3/4 animate-pulse"></div>
@@ -146,20 +232,20 @@ const SectionSolution = () => {
         <div className="surface-card p-8 md:p-12 lg:p-16 reveal-up">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="section-kicker mb-4" style={{ color: '#b8890a', background: 'rgba(252,209,22,0.12)', borderColor: 'rgba(252,209,22,0.3)' }}>
-              🛡️ Conçu pour la fiabilité
+              {t.processTag}
             </div>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-blue mb-4 tracking-tight">Comment nous évitons l'hallucination</h3>
-            <p className="text-brand-muted font-medium text-base md:text-lg leading-relaxed">L'intelligence artificielle est brillante, mais elle peut se tromper. Le protocole MCP agit comme un garde-fou&nbsp;: il oblige l'assistant à lire la donnée gouvernementale avant de répondre.</p>
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-blue mb-4 tracking-tight">{t.processTitle}</h3>
+            <p className="text-brand-muted font-medium text-base md:text-lg leading-relaxed">{t.processDesc}</p>
           </div>
 
           <div className="flex flex-col lg:flex-row items-stretch gap-6 lg:gap-4">
-            <ProcessStep number="1" title="Question" description="Expression du besoin en langage naturel." />
+            <ProcessStep number="1" title={t.steps[0].title} description={t.steps[0].description} />
             <div className="step-connector hidden lg:block self-center"></div>
-            <ProcessStep number="2" title="Traduction MCP" description="Conversion en requête technique stricte." color="#006B3F" />
+            <ProcessStep number="2" title={t.steps[1].title} description={t.steps[1].description} color="#006B3F" />
             <div className="step-connector hidden lg:block self-center"></div>
-            <ProcessStep number="3" title="Base de l'État" description="Extraction de la donnée certifiée (DGI / MINFI)." color="#b8890a" />
+            <ProcessStep number="3" title={t.steps[2].title} description={t.steps[2].description} color="#b8890a" />
             <div className="step-connector hidden lg:block self-center"></div>
-            <ProcessStep number="4" title="Réponse sourcée" description="L'assistant vulgarise l'information certifiée." />
+            <ProcessStep number="4" title={t.steps[3].title} description={t.steps[3].description} />
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ import SectionEcosysteme from '@/ui/modules/SectionEcosysteme';
 import SectionSecurite from '@/ui/modules/SectionSecurite';
 import SectionPublic from '@/ui/modules/SectionPublic';
 import SectionCTA from '@/ui/modules/SectionCTA';
+import { useLanguage } from '@/context/LanguageContext';
 
 /**
  * MboaGovFiscal Orchestrator
@@ -22,7 +23,7 @@ import SectionCTA from '@/ui/modules/SectionCTA';
 export default function MboaGovFiscal() {
   useScrollReveal();
   const particlesRef = useParticles();
-
+  const { language } = useLanguage();
   return (
     <div className="text-brand-text antialiased relative">
       {/* Background Particles Container */}
@@ -56,8 +57,8 @@ export default function MboaGovFiscal() {
               <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></div>
             </div>
             <div>
-              <p className="text-sm font-bold text-brand-blue">Bonjour !</p>
-              <p className="text-xs text-brand-muted mt-1 leading-relaxed">Je suis votre assistant fiscal. Comment puis-je vous aider aujourd&apos;hui ?</p>
+              <p className="text-sm font-bold text-brand-blue"> {language === 'fr' ? 'Bonjour !' : 'Good Morning !'}</p>
+              <p className="text-xs text-brand-muted mt-1 leading-relaxed">{language === 'fr' ? "Je suis votre assistant fiscal. Comment puis-je vous aider aujourd'hui ?" : "I am your tax assistant. How can i help you today ?"}</p>
             </div>
           </div>
         </div>

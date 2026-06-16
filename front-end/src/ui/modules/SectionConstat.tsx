@@ -1,23 +1,47 @@
 import React from 'react';
 import { CHALLENGES } from '../design-system/constants';
 import { useCounter } from '@/hooks/useCounter';
+import { useLanguage } from '@/context/LanguageContext';
 
 const SectionConstat = () => {
+  const { language } = useLanguage();
+  const challenges = CHALLENGES[language];
   const { count: massiveCount, countRef: massiveCountRef } = useCounter(602);
+
+  const content = {
+    fr: {
+      tag: "Le Constat",
+      headline: ["La fiscalité camerounaise ne devrait pas être un ", "parcours du combattant"],
+      subline: "Des millions de citoyens, artisans et PME perdent du temps, commettent des erreurs ou renoncent à leurs démarches faute d'informations claires et accessibles.",
+      costTitle: "Le coût de la complexité",
+      hoursPerYear: "heures/an",
+      costDesc: "C'est le temps moyen consacré chaque année par une PME camerounaise pour comprendre, préparer et soumettre ses obligations fiscales."
+    },
+    en: {
+      tag: "The Facts",
+      headline: ["Cameroonian taxation should not be an ", "obstacle course"],
+      subline: "Millions of citizens, artisans and SMEs lose time, make mistakes or give up on their procedures for lack of clear and accessible information.",
+      costTitle: "The cost of complexity",
+      hoursPerYear: "hours/year",
+      costDesc: "This is the average time spent each year by a Cameroonian SME to understand, prepare and submit its tax obligations."
+    }
+  };
+
+  const t = content[language];
 
   return (
     <section id="constat" className="relative w-full pt-8 pb-24 lg:pt-12 lg:pb-32 overflow-hidden bg-mist">
       <div className="max-w-2xl mx-auto px-4 text-center relative z-10">
         <div className="inline-flex items-center gap-3 mb-6">
           <span className="w-10 h-[2px] bg-gradient-to-r from-transparent to-brand-green" />
-          <span className="text-xs md:text-sm font-bold tracking-[0.25em] uppercase text-brand-green">Le Constat</span>
+          <span className="text-xs md:text-sm font-bold tracking-[0.25em] uppercase text-brand-green">{t.tag}</span>
           <span className="w-10 h-[2px] bg-gradient-to-r from-brand-green to-transparent" />
         </div>
 
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-blue leading-[1.15] mb-8 tracking-tight max-w-3xl mx-auto">
-        La fiscalité camerounaise ne devrait pas être un{" "}
+        {t.headline[0]}{" "}
         <span className="text-brand-green relative inline-block whitespace-nowrap">
-          parcours du combattant
+          {t.headline[1]}
 
           <svg
             className="absolute w-full h-3 -bottom-1.5 left-0 text-brand-gold opacity-80"
@@ -36,15 +60,13 @@ const SectionConstat = () => {
       </h1>
 
       <p className="text-base md:text-lg text-brand-muted leading-relaxed max-w-2xl mx-auto font-medium opacity-90">
-        Des millions de citoyens, artisans et PME perdent du temps,
-        commettent des erreurs ou renoncent à leurs démarches faute
-        d'informations claires et accessibles.
+        {t.subline}
       </p>
 
       </div>
       <div className="max-w-[1200px] mx-auto px-6 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7">
-          {CHALLENGES.map((challenge, index) => (
+          {challenges.map((challenge, index) => (
             <ChallengeCard key={challenge.id} challenge={challenge} index={index} />
           ))}
         </div>
@@ -56,15 +78,15 @@ const SectionConstat = () => {
           <div className="ambient-glow" style={{ top: '-20%', right: '-10%', width: '36%', height: '60%', background: 'radial-gradient(circle,rgba(0,107,63,0.08) 0%,transparent 70%)' }}></div>
           <div className="ambient-glow" style={{ bottom: '-20%', left: '-10%', width: '36%', height: '60%', background: 'radial-gradient(circle,rgba(15,76,129,0.08) 0%,transparent 70%)' }}></div>
           <div className="relative z-10">
-            <p className="text-sm font-bold tracking-widest uppercase text-brand-muted mb-6">Le coût de la complexité</p>
+            <p className="text-sm font-bold tracking-widest uppercase text-brand-muted mb-6">{t.costTitle}</p>
             <div className="flex items-baseline justify-center gap-4 mb-6">
               <span ref={massiveCountRef} className="text-3xl md:text-5xl font-black text-gradient tabular-nums">
                 {massiveCount}
               </span>
-              <span className="text-2xl md:text-4xl font-bold text-brand-blue">heures/an</span>
+              <span className="text-2xl md:text-4xl font-bold text-brand-blue">{t.hoursPerYear}</span>
             </div>
             <p className="text-base md:text-lg text-brand-muted font-medium max-w-2xl mx-auto leading-relaxed">
-              C'est le temps moyen consacré chaque année par une PME camerounaise pour comprendre, préparer et soumettre ses obligations fiscales.
+              {t.costDesc}
             </p>
           </div>
         </div>

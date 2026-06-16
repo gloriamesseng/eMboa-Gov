@@ -1,15 +1,21 @@
 import React from 'react';
 import { QUICK_ACTIONS } from '../design-system/constants';
+import { useLanguage } from '@/context/LanguageContext';
 
 const QuickAccess = () => {
+  const { language } = useLanguage();
+  const actions = QUICK_ACTIONS[language];
+
   return (
     <section className="max-w-[1300px] mx-auto px-6 pt-24 pb-16 reveal relative z-20">
       <div className="flex items-center gap-4 mb-8">
         <div className="w-6 h-[2px] bg-brand-green"></div>
-        <h3 className="text-sm font-bold tracking-widest text-brand-blue uppercase">Accès Rapide</h3>
+        <h3 className="text-sm font-bold tracking-widest text-brand-blue uppercase">
+          {language === 'fr' ? 'Accès Rapide' : 'Quick Access'}
+        </h3>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3">
-        {QUICK_ACTIONS.map((action) => (
+        {actions.map((action) => (
           <a
             key={action.id}
             href={action.href}

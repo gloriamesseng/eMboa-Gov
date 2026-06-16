@@ -1,6 +1,62 @@
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const SectionSecurite = () => {
+  const { language } = useLanguage();
+
+  const content = {
+    fr: {
+      headline: "Chaque réponse est vérifiée avant de vous être présentée.",
+      subline: "Une IA utile n'est pas une IA qui devine. C'est une architecture qui s'appuie exclusivement sur les bases de données officielles de l'État.",
+      flow: [
+        { title: "Utilisateur", subtitle: "Requête" },
+        { title: "Assistant IA", subtitle: "Analyse sémantique" },
+        { title: "Protocole MCP", subtitle: "Filtre strict" },
+        { title: "Bases de l'État", subtitle: "DGI & MINFI" }
+      ],
+      guarantees: [
+        {
+          title: "Données officielles",
+          description: "Aucune information n'est générée au hasard. Chaque texte de loi cité est extrait en temps réel du Code Général des Impôts en vigueur."
+        },
+        {
+          title: "Schémas contrôlés",
+          description: "Notre architecture technique empêche l'assistant d'improviser. Si la donnée gouvernementale n'existe pas, il vous le dira clairement."
+        },
+        {
+          title: "Confidentialité absolue",
+          description: "Vos données financières et vos requêtes sont chiffrées de bout en bout. Elles ne servent jamais à entraîner des modèles d'intelligence artificielle publics."
+        }
+      ]
+    },
+    en: {
+      headline: "Every answer is verified before being presented to you.",
+      subline: "A useful AI is not an AI that guesses. It is an architecture that relies exclusively on official State databases.",
+      flow: [
+        { title: "User", subtitle: "Request" },
+        { title: "AI Assistant", subtitle: "Semantic analysis" },
+        { title: "MCP Protocol", subtitle: "Strict filter" },
+        { title: "State Bases", subtitle: "DGI & MINFI" }
+      ],
+      guarantees: [
+        {
+          title: "Official data",
+          description: "No information is generated at random. Every cited law text is extracted in real time from the General Tax Code in force."
+        },
+        {
+          title: "Controlled schemas",
+          description: "Our technical architecture prevents the assistant from improvising. If government data doesn't exist, it will tell you clearly."
+        },
+        {
+          title: "Absolute confidentiality",
+          description: "Your financial data and queries are encrypted end-to-end. They are never used to train public artificial intelligence models."
+        }
+      ]
+    }
+  };
+
+  const t = content[language];
+
   return (
     <section id="securite" className="relative w-full py-24 lg:py-32 bg-white overflow-hidden">
       <div className="absolute inset-0 -z-10 opacity-50" style={{ backgroundImage: 'radial-gradient(#E2E8F0 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
@@ -12,10 +68,10 @@ const SectionSecurite = () => {
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-blue tracking-tight leading-[1.15] mb-6">
-            Chaque réponse est vérifiée avant de vous être présentée.
+            {t.headline}
           </h2>
           <p className="text-base md:text-lg text-brand-muted font-medium leading-relaxed">
-            Une IA utile n'est pas une IA qui devine. C'est une architecture qui s'appuie exclusivement sur les bases de données officielles de l'État.
+            {t.subline}
           </p>
         </div>
 
@@ -40,16 +96,16 @@ const SectionSecurite = () => {
           </svg>
 
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0">
-            <FlowItem icon="👤" title="Utilisateur" subtitle="Requête" />
+            <FlowItem icon="👤" title={t.flow[0].title} subtitle={t.flow[0].subtitle} />
             <div className="glass-light flex flex-col items-center p-4 rounded-2xl w-44 transform scale-110">
               <div className="w-14 h-14 rounded-full flex items-center justify-center mb-3 text-white shadow-lg" style={{ background: 'linear-gradient(135deg,#0F4C81,#006B3F)' }}>
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               </div>
-              <span className="text-sm font-bold text-brand-blue">Assistant IA</span>
-              <span className="text-[10px] text-brand-green font-bold uppercase tracking-wider mt-1">Analyse sémantique</span>
+              <span className="text-sm font-bold text-brand-blue">{t.flow[1].title}</span>
+              <span className="text-[10px] text-brand-green font-bold uppercase tracking-wider mt-1">{t.flow[1].subtitle}</span>
             </div>
-            <FlowItem icon={<svg className="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>} title="Protocole MCP" subtitle="Filtre strict" dark />
-            <FlowItem icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>} title="Bases de l'État" subtitle="DGI &amp; MINFI" greenIcon />
+            <FlowItem icon={<svg className="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>} title={t.flow[2].title} subtitle={t.flow[2].subtitle} dark />
+            <FlowItem icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>} title={t.flow[3].title} subtitle={t.flow[3].subtitle} greenIcon />
           </div>
         </div>
 
@@ -57,21 +113,21 @@ const SectionSecurite = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
           <GuaranteeCard 
             icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>} 
-            title="Données officielles" 
-            description="Aucune information n'est générée au hasard. Chaque texte de loi cité est extrait en temps réel du Code Général des Impôts en vigueur." 
+            title={t.guarantees[0].title} 
+            description={t.guarantees[0].description} 
             colorClass="text-brand-blue bg-brand-blue/10"
           />
           <GuaranteeCard 
             icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>} 
-            title="Schémas contrôlés" 
-            description="Notre architecture technique empêche l'assistant d'improviser. Si la donnée gouvernementale n'existe pas, il vous le dira clairement." 
+            title={t.guarantees[1].title} 
+            description={t.guarantees[1].description} 
             colorClass="text-brand-green bg-brand-green/10"
             delay="0.1s"
           />
           <GuaranteeCard 
             icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>} 
-            title="Confidentialité absolue" 
-            description="Vos données financières et vos requêtes sont chiffrées de bout en bout. Elles ne servent jamais à entraîner des modèles d'intelligence artificielle publics." 
+            title={t.guarantees[2].title} 
+            description={t.guarantees[2].description} 
             style={{ background: 'rgba(252,209,22,0.16)', color: '#b8890a' }}
             delay="0.2s"
           />

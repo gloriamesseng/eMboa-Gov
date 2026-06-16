@@ -1,6 +1,30 @@
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ChatSearch = () => {
+  const { language } = useLanguage();
+
+  const content = {
+    fr: {
+      placeholder: "Posez votre question fiscale ou choisissez une action ci-dessous...",
+      suggestions: [
+        "Comment déclarer mes revenus ?",
+        "Quelles sont mes échéances ?",
+        "Comment obtenir mon quitus fiscal ?"
+      ]
+    },
+    en: {
+      placeholder: "Ask your tax question or choose an action below...",
+      suggestions: [
+        "How to declare my income?",
+        "What are my deadlines?",
+        "How to get my tax clearance?"
+      ]
+    }
+  };
+
+  const t = content[language];
+
   return (
     <div className="relative z-30 max-w-[1000px] mx-auto px-6 -mt-24 lg:-mt-32 reveal">
       <div className="bg-white p-3 rounded-[2.5rem] flex flex-col border border-gray-200">
@@ -8,7 +32,7 @@ const ChatSearch = () => {
           <img src="/assets/images/chatbot.png" alt="Laboratoire" className="w-8 h-8 mr-4 animate-pulse object-contain" />
           <input 
             type="text" 
-            placeholder="Posez votre question fiscale ou choisissez une action ci-dessous..." 
+            placeholder={t.placeholder} 
             className="flex-1 bg-transparent border-none outline-none text-base font-medium text-brand-text placeholder:text-brand-muted/70"
           />
           
@@ -18,9 +42,9 @@ const ChatSearch = () => {
         </div>
         
         <div className="flex flex-wrap items-center justify-center gap-3 mt-4 mb-2">
-          <SuggestionButton text="Comment déclarer mes revenus ?" />
-          <SuggestionButton text="Quelles sont mes échéances ?" />
-          <SuggestionButton text="Comment obtenir mon quitus fiscal ?" />
+          {t.suggestions.map((text, i) => (
+            <SuggestionButton key={i} text={text} />
+          ))}
         </div>
       </div>
     </div>
