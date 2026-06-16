@@ -13,6 +13,15 @@ export interface QuickAction {
   href: string;
 }
 
+export interface FeatureBadgeProps {
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+  colorClass: string;
+  bgClass: string;
+  isSvgPathOnly?: boolean;
+}
+
 export interface ChallengeCard {
   id: string;
   number: string;
@@ -22,6 +31,78 @@ export interface ChallengeCard {
   statLabel: string;
   type: 'green' | 'blue' | 'gold' | 'purple';
 }
+
+export const FOOTER_COLORS = {
+  blueDeep: '#060F1C',
+  green: '#006B3F',
+  gold: '#FCD116',
+  white: '#FFFFFF',
+  textLight: 'rgba(255,255,255,0.65)',
+} as const;
+
+export const FOOTER_LINKS = {
+  fr: [
+    {
+      title: 'Gouvernement',
+      links: [
+        { label: 'DGI Cameroun', href: 'https://www.impots.cm/fr/acceuil' },
+        { label: 'Ministère des Finances', href: 'https://minfi.gov.cm/en/home/' },
+        { label: 'Portail e-services', href: '#' },
+        { label: 'Textes officiels', href: '#' },
+      ],
+    },
+    {
+      title: 'Support',
+      links: [
+        { label: "Centre d'aide", href: '#' },
+        { label: 'Contact DGI', href: 'https://www.impots.cm/fr/centre-dappels/' },
+        { label: 'Guide utilisateur', href: '#' },
+        { label: 'Accessibilité', href: '#' },
+      ],
+    },
+    {
+      title: 'Légal',
+      links: [
+        { label: 'Politique de confidentialité', href: '#' },
+        { label: "Conditions d'utilisation", href: '#' },
+        { label: 'Accessibilité', href: '#' },
+        { label: 'Mentions légales', href: '#' },
+      ],
+    },
+  ],
+  en: [
+    {
+      title: 'Government',
+      links: [
+        { label: 'DGI Cameroon', href: 'https://www.impots.cm/fr/acceuil' },
+        { label: 'Ministry of Finance', href: 'https://minfi.gov.cm/en/home/' },
+        { label: 'E-services portal', href: '#' },
+        { label: 'Official texts', href: '#' },
+      ],
+    },
+    {
+      title: 'Support',
+      links: [
+        { label: 'Help center', href: '#' },
+        { label: 'DGI contact', href: 'https://www.impots.cm/fr/centre-dappels/' },
+        { label: 'User guide', href: '#' },
+        { label: 'Accessibility', href: '#' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { label: 'Privacy policy', href: '#' },
+        { label: 'Terms of use', href: '#' },
+        { label: 'Accessibility', href: '#' },
+        { label: 'Legal notice', href: '#' },
+      ],
+    },
+  ],
+} as const;
+
+
+
 
 export interface TargetGroup {
   id: string;
@@ -36,6 +117,7 @@ export interface TargetGroup {
     answer: string;
   };
 }
+
 
 export const NAV_LINKS = {
   fr: [
@@ -101,4 +183,35 @@ export const TARGET_GROUPS = {
     { id: 'artisan', title: 'Artisans', description: 'Focus on your craft, not the paperwork.', icon: '⚒️', image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800', gradient: 'from-brand-green/95 via-brand-green/55 to-transparent', type: 'artisan', reality: { question: 'How do I pay my business license this year? My workshop is in Douala.', answer: 'The business license contribution is paid at the divisional center you depend on. I guide you step by step for mobile payment.' } },
     { id: 'liberal', title: 'Liberal Professions', description: 'Tax management aligned with your fees.', icon: '💼', image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800', gradient: 'from-[#b8890a]/95 via-[#b8890a]/55 to-transparent', type: 'liberal', reality: { question: 'Should I withhold tax on fees paid to my external collaborators?', answer: 'Yes. The withholding tax rate on fees is fixed at 5.5% for residents. Here is the pre-filled form.' } },
   ]
+};
+
+export const content = {
+  fr: {
+    badge: "Plateforme officielle & 100% sécurisée",
+    title: ["Votre assistant fiscal ", "intelligent", " au Cameroun"],
+    description: "Posez vos questions, accédez à vos informations fiscales et simplifiez toutes vos démarches administratives.",
+    features: [
+      { title: "Réponses fiables", subtitle: "et officielles" },
+      { title: "Données sécurisées", subtitle: "et confidentielles" },
+      { title: "Disponible 24/7", subtitle: "partout, tout le temps" }
+    ]
+  },
+  en: {
+    badge: "Official & 100% secure platform",
+    title: ["Your ", "intelligent", " tax assistant in Cameroon"],
+    description: "Ask your questions, access your tax information and simplify all your administrative procedures.",
+    features: [
+      { title: "Reliable answers", subtitle: "and official" },
+      { title: "Secure data", subtitle: "and confidential" },
+      { title: "Available 24/7", subtitle: "anywhere, anytime" }
+    ]
+  }
+};
+
+export const contact = {
+  phone: '+237680061741',
+  email: 'messengloria@gmail.com',
+  dgiUrl: 'https://www.impots.cm/fr/acceuil',
+  minfiUrl: 'https://minfi.gov.cm/en/home/',
+  contactDgiUrl: 'https://www.impots.cm/fr/centre-dappels/',
 };

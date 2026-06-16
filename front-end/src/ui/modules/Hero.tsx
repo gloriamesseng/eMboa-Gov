@@ -1,34 +1,10 @@
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import {content, FeatureBadgeProps} from '@/ui/design-system/constants'
 
 const Hero = () => {
   const { language } = useLanguage();
-
-  const content = {
-    fr: {
-      badge: "Plateforme officielle & 100% sécurisée",
-      title: ["Votre assistant fiscal ", "intelligent", " au Cameroun"],
-      description: "Posez vos questions, accédez à vos informations fiscales et simplifiez toutes vos démarches administratives.",
-      features: [
-        { title: "Réponses fiables", subtitle: "et officielles" },
-        { title: "Données sécurisées", subtitle: "et confidentielles" },
-        { title: "Disponible 24/7", subtitle: "partout, tout le temps" }
-      ]
-    },
-    en: {
-      badge: "Official & 100% secure platform",
-      title: ["Your ", "intelligent", " tax assistant in Cameroon"],
-      description: "Ask your questions, access your tax information and simplify all your administrative procedures.",
-      features: [
-        { title: "Reliable answers", subtitle: "and official" },
-        { title: "Secure data", subtitle: "and confidential" },
-        { title: "Available 24/7", subtitle: "anywhere, anytime" }
-      ]
-    }
-  };
-
   const t = content[language];
-
   return (
     <div className="relative z-10 max-w-[1400px] mx-auto px-6 pt-10 pb-32 flex flex-col lg:flex-row items-center min-h-[650px]">
       <div className="w-full lg:w-[55%] relative z-20 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -78,15 +54,6 @@ const Hero = () => {
     </div>
   );
 };
-
-interface FeatureBadgeProps {
-  icon: React.ReactNode;
-  title: string;
-  subtitle: string;
-  colorClass: string;
-  bgClass: string;
-  isSvgPathOnly?: boolean;
-}
 
 const FeatureBadge = ({ icon, title, subtitle, colorClass, bgClass, isSvgPathOnly = true }: FeatureBadgeProps) => (
   <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-3 rounded-2xl shadow-sm border border-brand-border/50">

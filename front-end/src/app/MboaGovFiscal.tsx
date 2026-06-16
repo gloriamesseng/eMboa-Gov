@@ -14,7 +14,9 @@ import SectionEcosysteme from '@/ui/modules/SectionEcosysteme';
 import SectionSecurite from '@/ui/modules/SectionSecurite';
 import SectionPublic from '@/ui/modules/SectionPublic';
 import SectionCTA from '@/ui/modules/SectionCTA';
+import Footer from '@/ui/modules/Footer';
 import { useLanguage } from '@/context/LanguageContext';
+
 
 /**
  * MboaGovFiscal Orchestrator
@@ -94,6 +96,11 @@ export default function MboaGovFiscal() {
         <SectionPublic />
         <SectionCTA />
       </main>
+
+      <Footer />
+
+
     </div>
   );
 }
+
