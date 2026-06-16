@@ -1,9 +1,12 @@
-import MboaGovFiscal from "@/ui/modules/mboa-gov-fiscal/MboaGovFiscal";
+import { Metadata } from 'next';
+import MboaGovFiscal from './MboaGovFiscal';
 
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
-      <MboaGovFiscal />
-    </main>
-  );
+export const metadata: Metadata = {
+  title: 'MboaGov Fiscal - Assistant Fiscal National au Cameroun',
+  description: 'Posez vos questions, accédez à vos informations fiscales et simplifiez toutes vos démarches administratives avec votre assistant fiscal intelligent.',
+  keywords: ['fiscalité', 'Cameroun', 'impôts', 'DGI', 'assistant fiscal', 'MboaGov'],
+};
+
+export default function Page() {
+  return <MboaGovFiscal />;
 }
