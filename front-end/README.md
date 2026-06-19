@@ -7,6 +7,7 @@ Application web Next.js pour l’« Assistant Fiscal National » au Cameroun.
 [![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/CSS-Tailwind%20CSS-06B6D4?logo=tailwind-css)](https://tailwindcss.com)
+[![Firebase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Stack

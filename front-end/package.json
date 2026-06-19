@@ -10,6 +10,8 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@dataconnect/generated": "file:src/dataconnect-generated",
+    "firebase": "^12.15.0",
     "framer-motion": "^12.40.0",
     "next": "16.2.9",
     "postcss": "^8.5.15",
@@ -31,4 +33,3 @@
     "vitest": "^4.1.9"
   }
 }
-
